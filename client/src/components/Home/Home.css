@@ -1,0 +1,34 @@
+.main {
+  display: grid;
+  grid-template-columns: 1fr 510px; /* Two columns in first row */
+  grid-template-areas:
+    "left right"
+    "bottom bottom"; /* Second row spans both columns */
+  gap: 40px;
+  padding: 20px;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.top-left {
+  grid-area: left;
+}
+
+.top-right {
+  grid-area: right;
+}
+
+.bottom-row {
+  grid-area: bottom;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "left"
+      "right"
+      "bottom";
+  }
+}

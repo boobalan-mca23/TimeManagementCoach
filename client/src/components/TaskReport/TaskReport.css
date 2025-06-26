@@ -1,0 +1,38 @@
+
+.table {
+  border-collapse: collapse;
+  width: 80%;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+}
+thead tr .th {
+  background-color: #343a40;
+  color: #ffffff;
+  padding: 12px 15px;
+  border: 1px solid #dee2e6;
+  text-align: left;
+}
+
+.td {
+  padding: 12px 15px;
+  border: 1px solid #dee2e6;
+  background-color: #f8f9fa;
+}
+
+tr:hover .td {
+  background-color: #e2e6ea;
+  transition: background-color 0.3s ease;
+}
+
+tr:nth-child(even) .td {
+  background-color: #f1f3f5;
+}
+.editButton{
+   border:1px solid groov;
+   padding: 2px;
+   color:rgb(0, 94, 255);
+   background-color: whitesmoke;
+}
+
