@@ -7,14 +7,14 @@ import './Home.css';
 
 function Home() {
   const [task, setTask] = useState([]);
-
+  const [hideTable,setHideTable]=useState(true)
 
 
   return (
     <div className="main">
-      <div className="top-left"><FourQuadrants tasks={task} setTask={setTask} /></div>
+      <div className="top-left"><FourQuadrants tasks={task} setTask={setTask} hideTable={hideTable}setHideTable={setHideTable} /></div>
       <div className="top-right"><TaskCount tasks={task} /></div>
-      <div className="bottom-row"><TaskReport tasks={task} setTask={setTask} /></div>
+      {hideTable&& <div className="bottom-row"><TaskReport tasks={task} setTask={setTask} /></div>} 
     </div>
   );
 }
