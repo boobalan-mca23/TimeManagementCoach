@@ -1,6 +1,6 @@
 import './App.css'; // Make sure to create this file
 import Home from './components/Home/Home';
-import DashBoard from './components/TaskDashBoard/TaskDashBoard';
+import HelpPage from './components/HelpPage/HelpPage';
 import NavComponent from './components/Nav/Nav';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -15,7 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/home' element={<Home />}></Route>
-          {/* <Route path='/dashBoard' element={<DashBoard/>}></Route> */}
+          <Route path='/help' element={<HelpPage/>}></Route> 
         </Routes>
         <ToastContainer
           position="top-right"

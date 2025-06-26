@@ -4,7 +4,7 @@ import './FourQuadrants.css'
 import TaskForm from '../TaskForm/TaskForm';
 import Button from '@mui/material/Button';
 import { IoAddOutline } from "react-icons/io5";
-import {toast} from 'react-toastify'
+import { toast } from 'react-toastify'
 function FourQuadrants({ tasks, setTask }) {
   const color = ["#2196F3", "#F44336", "#000000", "#FF9800"];
   const [gridData, setGridData] = useState([]);
@@ -13,7 +13,7 @@ function FourQuadrants({ tasks, setTask }) {
 
   const handleTaskSave = (task) => {
     setTask(prev => [...prev, task]);
-     toast.success('Task created')
+    toast.success('Task created')
   }
 
   useEffect(() => {
@@ -63,24 +63,28 @@ function FourQuadrants({ tasks, setTask }) {
   return (
     <>
       <div>
-        <Button variant="outlined" onClick={() => setOpen(true)}>
+        <Button variant="contained" style={{fontWeight:"bolder"}} onClick={() => setOpen(true)} >
           <IoAddOutline /> Add Task
         </Button>
 
+      </div>
+      <div className='gird-content'>
+          <p>Aim to focus on Important and Not Urgent tasks to avoid these becoming urgent. This is a key trait of highly productive people</p>
+          <p>Reprioritize your tasks by changing due dates or priority to focus on what matters most.</p>
       </div>
       <div className="main-grid">
         {gridData.map((grid, index) => (
           <Grid key={index} title={grid.title} taskList={grid.list} color={color} colorIndex={index} />
         ))}
       </div>
-     
+
       <TaskForm
         open={open}
         onSave={handleTaskSave}
         onClose={() => setOpen(false)}
         isUpdate={false}
       />
-  
+
     </>
   );
 }

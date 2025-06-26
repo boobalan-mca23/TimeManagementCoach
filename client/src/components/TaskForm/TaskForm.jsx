@@ -50,20 +50,17 @@ function TaskForm({ open, onSave, onClose, editTask = null, isUpdate = null }) {
     const handleSave = (e) => {
         e.preventDefault();
 
-        const today = new Date();
-        const offsetToday = new Date(today.getTime() + 5.5 * 60 * 60 * 1000);
-        const todayDate = offsetToday.toISOString().split("T")[0];
-
         const taskToAdd = {
             ...newtask,
             id: isUpdate ? editTask.id : uuidv4(),            // ✅ generate unique ID
-            created_at: todayDate
+
         };
 
         // Check all fields are filled
         if (
             taskToAdd.title &&
             taskToAdd.due_date &&
+            taskToAdd.created_at &&
             taskToAdd.priority &&
             taskToAdd.status &&
             taskToAdd.assigned_to
@@ -87,25 +84,37 @@ function TaskForm({ open, onSave, onClose, editTask = null, isUpdate = null }) {
         <>
             <Dialog open={open}>
                 <form className="dialog-form" onSubmit={handleSave}>
-                    <DialogTitle style={{ textAlign: "center", color: 'blue' }}>{isUpdate?'EditTask':'Add Task'}</DialogTitle>
+                    <DialogTitle style={{ textAlign: "center", color: 'blue' }}>{isUpdate ? 'Edit Task' : 'Add Task'}</DialogTitle>
                     <DialogContent>
                         <div className="form-row">
                             <label>Task Name</label>
                             <TextField
-                                required
+                               autoFocus
+                               required
                                 type="text"
                                 name="title"
-                                autoFocus
                                 variant="outlined"
                                 value={newtask.title}
                                 onChange={handlechange}
                             />
                         </div>
-
+                        <div className="form-row">
+                            <label>Task Create Date</label>
+                            <TextField
+                                
+                                required
+                                type="date"
+                                name="created_at"
+                                variant="outlined"
+                                value={newtask.created_at}
+                                InputLabelProps={{ shrink: true }}
+                                onChange={handlechange}
+                            />
+                        </div>
                         <div className="form-row">
                             <label>Due Date</label>
                             <TextField
-                                autoFocus
+                                
                                 required
                                 type="date"
                                 name="due_date"
@@ -119,7 +128,7 @@ function TaskForm({ open, onSave, onClose, editTask = null, isUpdate = null }) {
                         <div className="form-row">
                             <label>Priority</label>
                             <Select
-                                autoFocus
+                                
                                 name="priority"
                                 value={newtask.priority}
                                 onChange={handlechange}
@@ -133,7 +142,7 @@ function TaskForm({ open, onSave, onClose, editTask = null, isUpdate = null }) {
                         <div className="form-row">
                             <label>Status</label>
                             <Select name="status"
-                                autoFocus
+                              
                                 value={newtask.status}
                                 defaultValue=""
                                 onChange={handlechange}>
@@ -146,7 +155,7 @@ function TaskForm({ open, onSave, onClose, editTask = null, isUpdate = null }) {
                         <div className="form-row">
                             <label>Assigned To</label>
                             <Select
-                                autoFocus
+                               
                                 name="assigned_to"
                                 value={newtask.assigned_to}
                                 defaultValue=""
@@ -160,7 +169,7 @@ function TaskForm({ open, onSave, onClose, editTask = null, isUpdate = null }) {
 
                     <DialogActions>
                         <Button onClick={onClose}>Cancel</Button>
-                        <Button type='submit'>{isUpdate ?"Edit":"Save"}</Button>
+                        <Button type='submit'>{isUpdate ? "Edit" : "Save"}</Button>
                     </DialogActions>
                 </form>
             </Dialog>
