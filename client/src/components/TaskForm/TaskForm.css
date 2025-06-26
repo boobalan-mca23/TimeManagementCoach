@@ -1,19 +1,19 @@
 .dialog-form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin-top: 8px;
+  gap: 12px;
+  margin-top: 6px;
 }
 
 .dialog-form label {
   font-weight: 500;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
   display: block;
   color: #555;
 }
 
 .dialog-form .form-row {
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .dialog-form .MuiTextField-root,

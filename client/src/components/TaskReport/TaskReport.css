@@ -30,9 +30,10 @@ tr:nth-child(even) .td {
   background-color: #f1f3f5;
 }
 .editButton{
-   border:1px solid groov;
-   padding: 2px;
-   color:rgb(0, 94, 255);
-   background-color: whitesmoke;
+   border: none;
+   padding: 3.5px;
+   color:white;
+   background-color: rgb(53, 53, 186);
+   border-radius: 3px;
 }
 

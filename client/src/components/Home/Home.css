@@ -1,6 +1,6 @@
 .main {
   display: grid;
-  grid-template-columns: 1fr 510px; /* Two columns in first row */
+  grid-template-columns: 1fr 200px; /* Two columns in first row */
   grid-template-areas:
     "left right"
     "bottom bottom"; /* Second row spans both columns */
