@@ -6,10 +6,21 @@ import TaskCount from "../TaskCount/TaskCount";
 import './Home.css';
 
 function Home() {
-  const [task, setTask] = useState([]);
+   const [task, setTask] = useState(() => {
+    const storedTasks = localStorage.getItem("tasks");
+    return storedTasks ? JSON.parse(storedTasks) : [];
+  });
+ 
   const [hideTable,setHideTable]=useState(true)
 
+  useEffect(()=>{
+     localStorage.setItem('tasks',JSON.stringify(task))
 
+  },[task])
+
+   
+
+  
   return (
     <div className="main">
       <div className="top-left"><FourQuadrants tasks={task} setTask={setTask} hideTable={hideTable}setHideTable={setHideTable} /></div>

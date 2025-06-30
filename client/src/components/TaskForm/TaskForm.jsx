@@ -65,6 +65,7 @@ function TaskForm({ open, onSave, onClose, editTask = null, isUpdate = null }) {
             taskToAdd.status &&
             taskToAdd.assigned_to
         ) {
+     
             onSave(taskToAdd)
             setNewTask({
                 id: "",
