@@ -14,7 +14,10 @@ function FourQuadrants({ tasks, setTask,setHideTable }) {
   const [switchChecked, setSwitchChecked] =useState(true);
 
   const handleTaskSave = (task) => {
+
     setTask(prev => [...prev, task]);
+   
+   
     toast.success('Task created')
   }
   const handleSwitchChange = (event) => {
@@ -62,7 +65,7 @@ function FourQuadrants({ tasks, setTask,setHideTable }) {
       ];
       setGridData(updatedTask);
     };
-
+  
     categorizeTasksByPriority(tasks);
   }, [tasks]);
 
